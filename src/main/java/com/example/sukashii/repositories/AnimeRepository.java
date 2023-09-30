@@ -29,4 +29,6 @@ public interface AnimeRepository extends CrudRepository<Anime, Long> {
     @Modifying
     @Query("INSERT INTO studio (id, name) VALUES (:id, :name)")
     void insertStudio(int id, String name);
+
+    boolean existsById(int animeid);
 }

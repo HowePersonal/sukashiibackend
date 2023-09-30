@@ -1,6 +1,7 @@
 package com.example.sukashii.model;
 
 import org.springframework.data.annotation.Id;
+import java.sql.Date;
 
 public class Anime {
 
@@ -9,13 +10,15 @@ public class Anime {
 
     private String title;
 
-    private String med_picture;
+    private int numEpisodes;
 
-    private String large_picture;
+    private String medPicture;
 
-    private String start_date;
+    private String largePicture;
 
-    private String end_date;
+    private Date startDate;
+
+    private Date endDate;
 
     private String description;
 
@@ -29,12 +32,12 @@ public class Anime {
         this.source = source;
     }
 
-    public int getNum_episodes() {
-        return num_episodes;
+    public int getNumEpisodes() {
+        return numEpisodes;
     }
 
-    public void setNum_episodes(int num_episodes) {
-        this.num_episodes = num_episodes;
+    public void setNumEpisodes(int numEpisodes) {
+        this.numEpisodes = numEpisodes;
     }
 
     public String getDescription() {
@@ -45,39 +48,37 @@ public class Anime {
         this.description = description;
     }
 
-    public String getEnd_date() {
-        return end_date;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEnd_date(String end_date) {
-        this.end_date = end_date;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
-    public String getStart_date() {
-        return start_date;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public String getLarge_picture() {
-        return large_picture;
+        return largePicture;
     }
 
-    public void setLarge_picture(String large_picture) {
-        this.large_picture = large_picture;
+    public void setLargePicture(String largePicture) {
+        this.largePicture = largePicture;
     }
 
-    public String getMed_picture() {
-        return med_picture;
+    public String getMedPicture() {
+        return medPicture;
     }
 
-    public void setMed_picture(String med_picture) {
-        this.med_picture = med_picture;
+    public void setMedPicture(String medPicture) {
+        this.medPicture = medPicture;
     }
-
-    private int num_episodes;
 
     public long getId() {
         return id;
