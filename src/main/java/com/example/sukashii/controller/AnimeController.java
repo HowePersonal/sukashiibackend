@@ -4,6 +4,7 @@ package com.example.sukashii.controller;
 import com.example.sukashii.model.Anime;
 import com.example.sukashii.repositories.AnimeRepository;
 import com.example.sukashii.service.APIService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,13 +14,12 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/anime")
 public class AnimeController {
-    private final APIService APIService;
-    private final AnimeRepository animeRepository;
 
-    public AnimeController(APIService APIService, AnimeRepository animeRepository) {
-        this.APIService = APIService;
-        this.animeRepository = animeRepository;
-    }
+    @Autowired
+    private APIService APIService;
+
+    @Autowired
+    private AnimeRepository animeRepository;
 
     @GetMapping("/ranked")
     public List<Map<String, Object>> getTrendingAnime(

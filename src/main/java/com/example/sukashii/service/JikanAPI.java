@@ -25,7 +25,6 @@ public class JikanAPI {
         // Gets the response from the Jikan API
         Map<String, Object> response = jikanProxy.searchAnime(params);
         List<Map<String, Object>> animeList = (List<Map<String, Object>>) response.get("data");
-
         // Transforms the response into a list of Anime objects
         List<Anime> transformedAnimeList = transformJikanList(animeList);
 
@@ -64,7 +63,7 @@ public class JikanAPI {
 
     private void verifyAnimeExistence(Anime animeObject, long id) {
         if (!animeRepository.existsById(id)) {
-            animeRepository.insertAnime(animeObject);
+            animeRepository.save(animeObject);
         }
     }
 

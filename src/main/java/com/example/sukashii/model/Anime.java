@@ -1,11 +1,15 @@
 package com.example.sukashii.model;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+
 import java.sql.Date;
 
+@Entity
+@Table(name="Anime")
 public class Anime {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String title;

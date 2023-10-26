@@ -4,6 +4,7 @@ import com.example.sukashii.model.Anime;
 import com.example.sukashii.proxy.JikanProxy;
 import com.example.sukashii.proxy.MALProxy;
 import com.example.sukashii.repositories.AnimeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -17,16 +18,14 @@ import java.util.Map;
 @Service
 public class APIService {
 
+    @Autowired
+    private MalAPI malAPI;
 
-    private final MalAPI malAPI;
-    private final JikanAPI jikanAPI;
-    private final AnimeRepository animeRepository;
+    @Autowired
+    private JikanAPI jikanAPI;
 
-    public APIService(MalAPI malAPI, JikanAPI jikanAPI, AnimeRepository animeRepository) {
-        this.malAPI = malAPI;
-        this.jikanAPI = jikanAPI;
-        this.animeRepository = animeRepository;
-    }
+    @Autowired
+    private AnimeRepository animeRepository;
 
     @Cacheable(cacheNames = "searchAnime", key="#query")
     public List<Anime> getSearchAnime(String query) {
